@@ -1,0 +1,13 @@
+div.card {
+
+    padding: 0px;
+    /* background: hwb(0 4% 61% / 0.462); */
+    background: #202020;
+    color: white;
+  /* border-radius: 0%; */
+  
+}
+div.card h6 {display: flex; justify-content: center;}
+
+div.cards-container {background: black
+  ;}
