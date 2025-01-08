@@ -1,8 +1,8 @@
-const api_URL_TopMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`;
+const api_URL_now_playing = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}`;
 
 // fetch whole data movies
 function getData() {
-  fetch(api_URL_TopMovies)
+  fetch(api_URL_now_playing)
     .then((response) => {
       return response.json();
     })

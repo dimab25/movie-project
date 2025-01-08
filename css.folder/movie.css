@@ -1,22 +1,133 @@
-#movie-cast {
-  display: flex;
-  justify-content:space-between;
-  gap: 5px;
- 
+/* top-body */
+
+
+
+#movie-Title {
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.395);
 }
 
+
+#movie-cast {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
 #movieContainer {
   display: flex;
   justify-content: center;
   gap: 20px;
   padding-top: 30px;
 }
-
 #movieRightContainer {
   display: flex;
   justify-content: center;
   flex-direction: column;
   color: whitesmoke;
+  padding: 20px;
+}
+#movie-details-container {
+  display: flex;
+  justify-content: left;
+  gap: 40px;
+  flex-direction: row;
+}
+#genre-tag {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+#movie-links {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+#dateAndTimeDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
 }
 
-#genre-tag {display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;}
+/* bottom-body */
+
+/* backdropimage */
+
+#BackdropContainer {
+  margin-top: 1rem;
+}
+
+
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+gap: 5px;
+  
+}
+
+div.card-bodyX {
+  padding-top: 10px;
+}
+
+div.CastAndBackdropContainer {
+  display: flex;
+  justify-content: space-evenly;
+  color: whitesmoke;
+}
+
+.cards-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+
+  background-color: black;
+  /* gap: 10px 10px; */
+}
+#BackdropContainer {
+  display: flex;
+  justify-content: center;
+  
+
+  padding: 0px 30px 0px 30px;
+}
+
+#BackdropContainer > img {
+  border-radius: 20px;
+  /* margin: 0px 30px 0px 30px; */
+width: 75%;
+opacity: 0.3;
+
+}
+#BackdropContainer > img:hover {
+  opacity: 0.6;
+
+}
+.card-cast {
+  margin: 0rem 2rem 0rem 2rem;
+}
+
+.card-recommendations {
+  margin: 1rem 2rem 2rem 2rem;
+}
+
+.CastAndBackdropContainer
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.headline {
+  color: whitesmoke;
+  text-align: left;
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.395);
+  
+}
+
+/* YOUTUBE　modal */
+.btn-secondary {
+  background: #0d6dfd !important;
+}
+.modal-content {
+  background-color: rgb(25, 21, 21) !important;
+  border-color: white !important;
+}

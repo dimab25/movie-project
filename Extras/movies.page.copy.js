@@ -1,5 +1,11 @@
 const api_URL_TopMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`;
 
+// chrismas movies
+//   "https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=christmas";
+// "https://api.themoviedb.org/3/search/keyword?api_key=${api_key}&query=christmas";
+// search with keywords
+// "https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_keywords=207317";
+
 // fetch whole data movies
 function getData() {
   fetch(api_URL_TopMovies)
@@ -16,7 +22,8 @@ function getData() {
     });
 }
 
-// CREATE CONTAINER AND DISPLAY MOVIES
+
+// create container and display movies
 function displayFilms(movies) {
   const cardsContainer = document.querySelector(".cards-container");
   cardsContainer.innerText = "";
@@ -26,11 +33,11 @@ function displayFilms(movies) {
     cardContainer.setAttribute("class", "card");
     cardContainer.setAttribute("style", "width: 15rem;");
     cardContainer.setAttribute("id", movies[i].id);
-
+    // cardContainer
     const cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title");
     cardTitle.innerText = movies[i].title;
-    // POPULARITY
+    // just testing with popularity
     // const cardPopularity= document.createElement("h5")
     // cardPopularity.innerText = movies[i].popularity
 
@@ -83,6 +90,8 @@ function displayFilms(movies) {
     cardAddDiv.appendChild(cardDiv1);
     cardDiv1.appendChild(cardAddCircle);
     // cardContainer.appendChild (cardPopularity)
+
+    // cardContainer.appendChild(cardReleaseDate);
   }
 }
 getData();
@@ -93,15 +102,15 @@ const url_GenreList = `https://api.themoviedb.org/3/genre/movie/list?api_key=${a
 // Dropdown function
 //*  generate Dropdown options
 const createDropDown = (movies) => {
-  const dropdown = document.getElementById("movieGenreDropdown");
+  const dropdown = document.getElementById("leagueDropdown");
   const differentGenreIds = movies.map((movie) => {
     return movie.genre_ids;
   });
   // console.log("differentGenreIds", differentGenreIds);
-  // FLAT FUNCTION, putting all numbers in different arrays together
+  // flat function, putting all numbers in different arrays together
   const allGenres = differentGenreIds.flat(Infinity);
   // console.log(allGenres);
-  // SET FUNCTION: Each value can only occur once in a Set.
+  // set function: Each value can only occur once in a Set.
   const setOfGenres = new Set(allGenres);
   // console.log(setOfGenres);
   // transforms an set into an array
@@ -116,14 +125,17 @@ const createDropDown = (movies) => {
     .then((data) => {
       const genreList = data.genres;
       // console.log("genrelist", genreList);
-      // genreList is the Array with ids and  matching genrenames
-      const genreNamesResult = uniqueGenresArray.map((id) => {
-        const sameId = genreList.find((genre) => genre.id === id);
-        // sameId is not an array, but various objects containing matching ids and genre names
-        if (sameId) {
-          return { id, name: sameId.name };
+      // genreList is an Array with ids and genrenames
+      const result = uniqueGenresArray.map((id) => {
+        const match = genreList.find((genre) => genre.id === id);
+        // match is not an array, but various objects containing matching ids and genre names
+        if (match) {
+          return { id, name: match.name };
         }
       });
+
+      const genreNamesResult = result;
+
       for (let i = 0; i < genreNamesResult.length; i++) {
         const option = document.createElement("option");
         option.innerText = genreNamesResult[i].name;
@@ -138,7 +150,7 @@ const createDropDown = (movies) => {
 
 //* add event listeners Dropdown
 const setEventListenersDropDown = (movies) => {
-  const genreDropdown = document.querySelector("#movieGenreDropdown");
+  const genreDropdown = document.querySelector("#leagueDropdown");
   genreDropdown.addEventListener("change", function () {
     console.log("selected");
     // function
@@ -146,6 +158,37 @@ const setEventListenersDropDown = (movies) => {
     combinedFilters(movies);
   });
 };
+
+//*  fiter by dropdown
+// const filterByDropDown = (movies) => {
+//   console.log(movies);
+//   const selectedGenre = document.querySelector("#leagueDropdown").value;
+//   console.log(selectedGenre);
+//   if (selectedGenre === "all") {
+//     displayFilms(movies);
+//   } else {
+//     fetch(url_GenreList)
+//       .then((response) => {
+//         return response.json();
+//       })
+//       .then((data) => {
+//         const genreList = data.genres;
+//         console.log("genrelist", genreList);
+//         // result is an object with id and genre name, the one which is choosen in dropdown
+//         const result = genreList.find((genre) => genre.name === selectedGenre);
+//         console.log("result", result.id);
+//         // filter
+
+//         const filteredMovies = movies.filter((movie) => {
+//           return movie.genre_ids.includes(result.id);
+//         });
+//         displayFilms(filteredMovies);
+//       })
+//       .catch((error) => {
+//         console.log("error");
+//       });
+//   }
+// };
 
 // add event listeners Sort function
 const setEventListenersSort = (movies) => {
@@ -156,10 +199,31 @@ const setEventListenersSort = (movies) => {
     combinedFilters(movies);
   });
 };
+// filter by sortfunction
+// const filterBySortFunction = (movies) => {
+//   console.log("unsorted movies", movies);
+//   const selectedSortFunction = document.querySelector("#sort").value;
+//   console.log(selectedSortFunction);
+
+//   if (selectedSortFunction === "Rating") {
+//     movies.sort((a, b) => a.vote_average - b.vote_average);
+//     // console.log("sorted movies", movies);
+//     // console.log("funktinoiert");
+//     displayFilms(movies);
+//   }
+//   if (selectedSortFunction === "Popularity") {
+//     movies.sort((a, b) => b.popularity - a.popularity);
+//     displayFilms(movies);
+//   }
+//   if (selectedSortFunction === "ReleaseDate") {
+//     movies.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+//     displayFilms(movies);
+//   }
+// };
 
 const combinedFilters = (movies) => {
   // ;console.log("works");
-  const selectedGenre = document.querySelector("#movieGenreDropdown").value;
+  const selectedGenre = document.querySelector("#leagueDropdown").value;
   const selectedSortFunction = document.querySelector("#sort").value;
   console.log(selectedGenre);
   if (selectedGenre === "all") {
@@ -265,60 +329,9 @@ const filterBySearch = (movies) => {
     const searchedMovies = movies.filter((movie) => {
       return movie.title.toLowerCase().includes(typedMovieTitle);
     });
+
     console.log("typedMovieTitle", typedMovieTitle);
     console.log("searchedMovies", searchedMovies);
     displayFilms(searchedMovies);
   }
 };
-
-// USED ALREADY IN COMBINED FILTERS
-//*  fiter by dropdown
-// const filterByDropDown = (movies) => {
-//   console.log(movies);
-//   const selectedGenre = document.querySelector("#movieGenreDropdown").value;
-//   console.log(selectedGenre);
-//   if (selectedGenre === "all") {
-//     displayFilms(movies);
-//   } else {
-//     fetch(url_GenreList)
-//       .then((response) => {
-//         return response.json();
-//       })
-//       .then((data) => {
-//         const genreList = data.genres;
-//         console.log("genrelist", genreList);
-//         // result is an object with id and genre name, the one which is choosen in dropdown
-//         const result = genreList.find((genre) => genre.name === selectedGenre);
-//         console.log("result", result.id);
-//         // filter
-//         const filteredMovies = movies.filter((movie) => {
-//           return movie.genre_ids.includes(result.id);
-//         });
-//         displayFilms(filteredMovies);
-//       })
-//       .catch((error) => {
-//         console.log("error");
-//       });
-//   }
-// };
-
-// filter by sortfunction
-// const filterBySortFunction = (movies) => {
-//   console.log("unsorted movies", movies);
-//   const selectedSortFunction = document.querySelector("#sort").value;
-//   console.log(selectedSortFunction);
-//   if (selectedSortFunction === "Rating") {
-//     movies.sort((a, b) => a.vote_average - b.vote_average);
-//     // console.log("sorted movies", movies);
-//     // console.log("funktinoiert");
-//     displayFilms(movies);
-//   }
-//   if (selectedSortFunction === "Popularity") {
-//     movies.sort((a, b) => b.popularity - a.popularity);
-//     displayFilms(movies);
-//   }
-//   if (selectedSortFunction === "ReleaseDate") {
-//     movies.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
-//     displayFilms(movies);
-//   }
-// };
