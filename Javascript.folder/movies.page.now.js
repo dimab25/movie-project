@@ -235,10 +235,7 @@ function controller(movies) {
   createDropDown(movies);
   //create filter functions
   setEventListenersDropDown(movies);
-
-  // set sort function
   setEventListenersSort(movies);
-
   setEventListenersSearch(movies);
 }
 

@@ -49,3 +49,7 @@ h5.card-title {
   border-color: #093372;
   border-radius: 10px;
 }
+
+div.footer {
+  margin-top: 30px;
+}

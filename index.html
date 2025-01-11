@@ -20,7 +20,6 @@
     >
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">My Movie Page</a>
-
         <button
           class="navbar-toggler"
           type="button"
@@ -42,9 +41,11 @@
                 >Home</a
               >
             </li>
-            
+
             <li class="nav-item">
-              <a class="nav-link" href="movies.page.xmas.html">Christmas Movies</a>
+              <a class="nav-link" href="movies.page.xmas.html"
+                >Christmas Movies</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="movies.page.html">Popular Movies</a>
@@ -64,7 +65,7 @@
       <a href="movies.page.xmas.html"
         ><button type="button" class="btn btn-primary">Watch all</button></a
       >
-      <h2>Christmas Movies</h2>
+      <h4>Christmas Movies</h4>
     </div>
 
     <!-- carousel christmas movies -->
@@ -94,7 +95,10 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <a class="carousel-movie-aTag1">
-            <img id="movie-carousel-first" class="d-block w-75" alt="..."
+            <img
+              id="movie-carousel-first"
+              class="d-block w-75"
+              alt="movie-picture"
           /></a>
           <div class="carousel-caption d-none d-md-block">
             <h2 id="carousel-movie-title1"></h2>
@@ -103,7 +107,10 @@
         </div>
         <div class="carousel-item">
           <a class="carousel-movie-aTag2">
-            <img id="movie-carousel-second" class="d-block w-75" alt="..."
+            <img
+              id="movie-carousel-second"
+              class="d-block w-75"
+              alt="movie-picture"
           /></a>
           <div class="carousel-caption d-none d-md-block">
             <h2 id="carousel-movie-title2"></h2>
@@ -112,7 +119,11 @@
         </div>
         <div class="carousel-item">
           <a class="carousel-movie-aTag3">
-            <img id="movie-carousel-third" class="d-block w-75" alt="..." />
+            <img
+              id="movie-carousel-third"
+              class="d-block w-75"
+              alt="movie-picture"
+            />
           </a>
           <div class="carousel-caption d-none d-md-block">
             <h2 id="carousel-movie-title3"></h2>
@@ -140,65 +151,65 @@
       </button>
     </div>
 
-  
-
     <!-- top 5 christmas movies -->
     <div class="cards-container container-Top5Chistmas"></div>
 
-
-      <!-- Show more/less Button -->
-      <div class="ShowMoreLess">
-        <!-- <h2>Welcome to My Movie Page</h2> -->
-        <div class="ShowMoreLessChildDiv">
-          <p>
-            Get into the holiday spirit with our handpicked collection of
-            Christmas classics, heartwarming tales, and festive favorites!
-            <span id="dots">...</span>
-            <span id="more"
-              > Whether you're looking
-              for family-friendly fun, touching stories, or a little holiday
-              magic, these films will bring joy, laughter, and warmth to your
-              season. Perfect for cozy nights in, gather around with loved ones
-              and enjoy the best of Christmas cinema. 🎬✨</span
-            >
-          </p>
-          <button
-            type="button"
-            class="btn btn-primary"
-            onclick="showMoreLessText()"
-            id="showMoreLessBtn"
+    <!-- Show more/less Button -->
+    <div class="ShowMoreLess">
+      <!-- <h2>Welcome to My Movie Page</h2> -->
+      <div class="ShowMoreLessChildDiv">
+        <p>
+          Get into the holiday spirit with our handpicked collection of
+          Christmas classics, heartwarming tales, and festive favorites!
+          <span id="dots">...</span>
+          <span id="more">
+            Whether you're looking for family-friendly fun, touching stories, or
+            a little holiday magic, these films will bring joy, laughter, and
+            warmth to your season. Perfect for cozy nights in, gather around
+            with loved ones and enjoy the best of Christmas cinema. 🎬✨</span
           >
-            Read more
-          </button>
-        </div>
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="showMoreLessText()"
+          id="showMoreLessBtn"
+        >
+          Read more
+        </button>
       </div>
+    </div>
+
     <div class="headlines">
       <a href="movies.page.html"
         ><button type="button" class="btn btn-primary">Watch all</button></a
       >
-      <h2>Popular Movies</h2>
+      <h4>Popular Movies</h4>
     </div>
-
     <div class="cards-container container-top5Movies"></div>
 
     <div class="headlines">
       <a href="movies.page.now.html"
         ><button type="button" class="btn btn-primary">Watch all</button></a
       >
-      <h2>Now Playing</h2>
+      <h4>Now Playing</h4>
     </div>
-    
     <div class="cards-container container-top5_now_playing"></div>
 
     <div class="headlines">
       <a href="movies.page.tv.html"
         ><button type="button" class="btn btn-primary">Watch all</button></a
       >
-      <h2>TV Shows</h2>
+      <h4>TV Shows</h4>
     </div>
-
     <div class="cards-container container-top5TV"></div>
 
+    <footer>
+      <div class="footer">
+<img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="company logo">
+      </div>
+    </footer>
+    
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -210,9 +221,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="Javascript.folder/Api_key.js"></script>
-
     <script src="Javascript.folder/index.js"></script>
 
-    <script src="Javascript.folder/main.js"></script>
+  
   </body>
 </html>

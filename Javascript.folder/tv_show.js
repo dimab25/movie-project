@@ -1,4 +1,3 @@
-
 // ceck this function again
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
@@ -33,7 +32,6 @@ function getGenres(movie) {
     return genre.name;
   });
   // console.log(genreArray);
-
   for (let i = 0; i < genreArray.length; i++) {
     const genreTagContainer = document.getElementById("genre-tag");
     const genreTag = document.createElement("p");
@@ -44,10 +42,8 @@ function getGenres(movie) {
 
 function displayMovieInformatino(movie) {
   //  const movieInfContainer =document.querySelector(".movie-container") ;
-
   const movieTitle = document.getElementById("movie-Title");
   movieTitle.innerText = movie.name;
-
   const movieImage = document.getElementById("movie-Image");
   // const movieImage= document.createElement ("img");
   movieImage.setAttribute(
@@ -58,21 +54,16 @@ function displayMovieInformatino(movie) {
 
   const movieInfoOverview = document.getElementById("movie-overview");
   movieInfoOverview.innerText = movie.overview;
-
   const movieTagline = document.getElementById("movie-tagline");
-
   movieTagline.innerText = movie.tagline;
-
   const movieDate = document.getElementById("movie-date");
   movieDate.innerText = new Date(movie.first_air_date).toLocaleString("en-GB", {
     day: "numeric",
     month: "short",
     year: "numeric",
   });
-
   // const movieRuntime = document.getElementById("movie-runtime");
   // movieRuntime.innerText = movie.runtime + " min";
-
   const cardMovieVote = document.getElementById("vote-span");
   cardMovieVote.setAttribute("style", "width: 2rem;");
   cardMovieVote.classList.add("card-title");
@@ -83,7 +74,7 @@ function displayMovieInformatino(movie) {
 
   const cardBackdropContainer = document.getElementById("BackdropContainer");
   const cardBackdropImage = document.createElement("img");
-  cardBackdropImage.classList.add ("card-img")
+  cardBackdropImage.classList.add("card-img");
   cardBackdropImage.setAttribute(
     "src",
     "https://image.tmdb.org/t/p/original" + movie.backdrop_path
@@ -94,7 +85,6 @@ function displayMovieInformatino(movie) {
 getData();
 
 // Fetch Movietrailer with ID
-
 const url_Trailer = `https://api.themoviedb.org/3/tv/${movieID}/videos?api_key=${api_key}`;
 console.log(url_Trailer);
 
@@ -118,14 +108,11 @@ function getTrailer(trailer) {
   //   return clip.type;
   // });
   console.log(trailer);
-
   for (let i = 0; i < trailer.length; i++) {
     if (trailer[i].type === "Trailer") {
       const newTrailerKey = trailer[i].key;
-
       console.log("trailerkey", newTrailerKey);
       console.log(typeof newTrailerKey);
-
       const movieTrailer = document.querySelector(".youtube");
       movieTrailer.setAttribute(
         "src",
@@ -135,12 +122,11 @@ function getTrailer(trailer) {
     }
   }
 }
-// hier wird der key mehrere male angezeigt, ich muss es so einstellen, dass er nur einmal angezeigt wird und dann auch in anderen funktionen zu verwenden ist.
+// printed multiple times, but it works
 getTrailerData();
 // fetch MovieCredits with ID
 
 const url_Credits = `https://api.themoviedb.org/3/tv/${movieID}/credits?api_key=${api_key}`;
-
 function getCreditsData() {
   fetch(url_Credits)
     .then((response) => {
@@ -164,41 +150,27 @@ getCreditsData();
 function displayCreditsCrew(creditsCrew) {
   const crewContainer = document.getElementById("crew-Container");
 
-  const creator = creditsCrew.find((position) => position.job === "Executive Producer");
-  console.log("creator", creator);
-  console.log(creator.name);
-  if (creator !== undefined) {
+  const creator = creditsCrew.find(
+    (position) => position.job === "Executive Producer"
+  );
+  if (creator && creator.name) {
     const creatorPTag = document.createElement("p");
     creatorPTag.innerText = `${creator.job}: ${creator.name}`;
     crewContainer.appendChild(creatorPTag);
   }
-
-  // const screenplay = creditsCrew.find(
-  //   (position) => position.job === "Screenplay"
-  // );
-  // console.log("screenplay", screenplay);
-  // if (screenplay !== undefined) {
-  //   const screenplayPTag = document.createElement("p");
-  //   screenplayPTag.innerText = `${screenplay.job}: ${screenplay.name}`;
-  //   crewContainer.appendChild(screenplayPTag);
-  // }
-
-  // const novel = creditsCrew.find((position) => position.job === "Novel");
-  // console.log("novel", novel);
-  // if (novel !== undefined ) {
-  //   const novelPTag = document.createElement("p");
-  //   novelPTag.innerText = `${novel.job}: ${novel.name}`;
-  //   crewContainer.appendChild(novelPTag);
-  // }
-
-  // const story = creditsCrew.find((position) => position.job === "Story");
-  // console.log("story", story);
-  // if (story !== undefined) {
-  //   const storyPTag = document.createElement("p");
-  //   storyPTag.innerText = `${story.job}: ${story.name}`;
-  //   crewContainer.appendChild(storyPTag);
-  // }
- }
+  const writer = creditsCrew.find((position) => position.job === "Writer");
+  if (writer && writer.name) {
+    const writerPTag = document.createElement("p");
+    writerPTag.innerText = `${writer.job}: ${writer.name}`;
+    crewContainer.appendChild(writerPTag);
+  }
+  const novel = creditsCrew.find((position) => position.job === "Novel");
+  if (novel && novel.name) {
+    const novelPTag = document.createElement("p");
+    novelPTag.innerText = `${novel.job}: ${novel.name}`;
+    crewContainer.appendChild(novelPTag);
+  }
+}
 
 function displayCreditsCast(credits) {
   const creditsContainer = document.getElementById("movie-cast");
@@ -209,7 +181,6 @@ function displayCreditsCast(credits) {
     creditContainer.setAttribute("style", "width: 12rem;");
 
     const castImage = document.createElement("img");
-
     // castImage.setAttribute(
     //   "src",
     //   `https://image.tmdb.org/t/p/original${credits[i].profile_path}`
@@ -247,7 +218,6 @@ function displayCreditsCast(credits) {
 }
 
 // Recommendations
-
 const url_Recommendations = `https://api.themoviedb.org/3/tv/${movieID}/recommendations?api_key=${api_key}`;
 
 function getRecommendationsData() {

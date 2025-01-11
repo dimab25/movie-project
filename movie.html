@@ -15,53 +15,49 @@
   </head>
   <body>
     <nav
-    class="navbar sticky-top navbar-expand-sm bg-dark border-bottom"
-    data-bs-theme="dark"
-  >
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">My Movie Page</a>
+      class="navbar sticky-top navbar-expand-sm bg-dark border-bottom"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">My Movie Page</a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"> </span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul
-          class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-          style="--bs-scroll-height: 100px"
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html"
-              >Home</a
-            >
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="movies.page.xmas.html">Christmas Movies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="movies.page.html">Popular Movies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="movies.page.now.html">Now Playing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="movies.page.tv.html">TV Shows</a>
-          </li>
-        </ul>
+          <span class="navbar-toggler-icon"> </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul
+            class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style="--bs-scroll-height: 100px"
+          >
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="movies.page.xmas.html"
+                >Christmas Movies</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="movies.page.html">Popular Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="movies.page.now.html">Now Playing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="movies.page.tv.html">TV Shows</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-
-    <br />
-    <br />
+    </nav>
 
     <div id="movieContainer" class="movie-container container">
       <div class="movieLeftContainer">
@@ -117,7 +113,6 @@
       </div>
     </div>
 
-
     <!-- Modal -->
     <div
       class="modal fade"
@@ -153,11 +148,9 @@
       </div>
     </div>
 
-
     <!-- bottom half -->
-
     <div id="BackdropContainer"></div>
-    
+
     <div class="card-cast">
       <div class="headline"><h3>Cast</h3></div>
       <div id="movie-cast"></div>
@@ -167,7 +160,13 @@
       <div class="headline"><h3>Recommendations</h3></div>
       <div class="card-container"></div>
     </div>
-    
+
+    <footer>
+      <div class="footer">
+<img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="company logo">
+      </div>
+    </footer>
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

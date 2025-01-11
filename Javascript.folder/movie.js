@@ -168,9 +168,8 @@ function displayCreditsCrew(creditsCrew) {
   const crewContainer = document.getElementById("crew-Container");
 
   const director = creditsCrew.find((position) => position.job === "Director");
-  // console.log("director", director);
-  // console.log(director.name);
-  if (director !== undefined) {
+ 
+  if (director && director.name) {
     const directorPTag = document.createElement("p");
     directorPTag.innerText = `${director.job}: ${director.name}`;
     crewContainer.appendChild(directorPTag);
@@ -179,25 +178,22 @@ function displayCreditsCrew(creditsCrew) {
   const screenplay = creditsCrew.find(
     (position) => position.job === "Screenplay"
   );
-  // console.log("screenplay", screenplay);
-
-  if (screenplay !== undefined) {
+  if (screenplay && screenplay.name) {
     const screenplayPTag = document.createElement("p");
     screenplayPTag.innerText = `${screenplay.job}: ${screenplay.name}`;
     crewContainer.appendChild(screenplayPTag);
   }
 
   const novel = creditsCrew.find((position) => position.job === "Novel");
-  // console.log("novel", novel);
-  if (novel !== undefined ) {
+ 
+  if (novel && novel.name) {
     const novelPTag = document.createElement("p");
     novelPTag.innerText = `${novel.job}: ${novel.name}`;
     crewContainer.appendChild(novelPTag);
   }
 
   const story = creditsCrew.find((position) => position.job === "Story");
-  // console.log("story", story);
-  if (story !== undefined) {
+  if (story && story.name) {
     const storyPTag = document.createElement("p");
     storyPTag.innerText = `${story.job}: ${story.name}`;
     crewContainer.appendChild(storyPTag);
@@ -213,15 +209,7 @@ function displayCreditsCast(credits) {
     creditContainer.setAttribute("style", "width: 10rem;");
 
     const castImage = document.createElement("img");
-
-    // castImage.setAttribute(
-    //   "src",
-    //   `https://image.tmdb.org/t/p/original${credits[i].profile_path}`
-    // );
-    // castImage.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg");
-
     castImage.setAttribute("class", "card-img-top");
-
     if (credits[i].profile_path === null) {
       castImage.setAttribute(
         "src",
@@ -233,7 +221,6 @@ function displayCreditsCast(credits) {
         `https://image.tmdb.org/t/p/original${credits[i].profile_path}`
       );
     }
-
     const castTextBody = document.createElement("div");
     castTextBody.setAttribute("class", "card-bodyX");
 
@@ -251,7 +238,6 @@ function displayCreditsCast(credits) {
 }
 
 // Recommendations
-
 const url_Recommendations = `https://api.themoviedb.org/3/movie/${movieID}/recommendations?api_key=${api_key}`;
 
 function getRecommendationsData() {

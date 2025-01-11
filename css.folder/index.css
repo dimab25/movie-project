@@ -1,3 +1,6 @@
+.headlines .btn {
+  --bs-btn-padding-x: 0.2rem !important;
+}
 
 .cards-container {
 
@@ -34,8 +37,10 @@ a {
   text-shadow: 3px 3px black;
 }
 
-
 /* showMoreLess */
+#more {
+  display: none;
+}
 .ShowMoreLess {
   color: whitesmoke;
   margin: 0rem 3rem 0rem 3rem;
@@ -44,9 +49,11 @@ a {
   font-size: 30px;
 }
 
-
-
 /* christmas movies top 5 */
 div.cards-container:nth-child(4) {
   margin-top: 2rem;
+}
+
+.btn {
+  box-shadow: 3px 3px #002f75;
 }

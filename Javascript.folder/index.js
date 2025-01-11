@@ -1,4 +1,3 @@
-
 const api_URL_ChristmasMovies =
   `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_keywords=207317`;
 
@@ -18,7 +17,6 @@ function getDataChristmasMovies() {
       console.log("error");
     });
 }
-
 
 function displayChristmasMoviesCarousel (movies) {
     // carousel
@@ -52,16 +50,12 @@ carouselATag2.setAttribute("href", `movie.html?id=${movies[1].id}`);
 const carouselATag3 = document.querySelector (".carousel-movie-aTag3")
 carouselATag3.setAttribute("href", `movie.html?id=${movies[2].id}`);
   }
-
-
-function displayChristmasMovies(movies) {
+// christmas movies top 5
+  function displayChristmasMovies(movies) {
   const cardsContainer = document.querySelector(
     "div.cards-container.container-Top5Chistmas"
   );
-
   for (let i = 3; i < 8; i++) {
-    
-// christmas movies top 5
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("class", "card");
     cardContainer.setAttribute("style", "width: 14rem;");
@@ -91,9 +85,7 @@ function displayChristmasMovies(movies) {
 getDataChristmasMovies();
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
-// Home
-// //  Top 5 Movies (cards-container)
-
+// //  Popular 5 Movies (cards-container)
 const api_URL_TopMovies5 =
   `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`;
 
@@ -104,7 +96,7 @@ function getDataMovies() {
       return response.json();
     })
     .then((data) => {
-      console.log(data.results);
+      console.log("daten", data.results);
       const movies = data.results;
       displayFilms(movies);
     })
@@ -116,7 +108,6 @@ function displayFilms(movies) {
   const cardsContainer = document.querySelector(
     "div.cards-container.container-top5Movies"
   );
-
   for (let i = 0; i < 5; i++) {
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("class", "card");
@@ -145,19 +136,19 @@ function displayFilms(movies) {
   }
 }
 getDataMovies();
-
 // ---------------------------------------------------------------------------------------------------------------------------------------------
-// Home
 // //  Top 5 Now Playing (cards-container)
 
 const api_URL_now_playingTop5 =
   `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}`;
 
 function getDataNowPlaying() {
+  
   fetch(api_URL_now_playingTop5)
     .then((response) => {
       console.log(response);
       return response.json();
+
     })
     .then((data) => {
       console.log(data.results);
@@ -172,7 +163,6 @@ function displayNowPlaying(movies) {
   const cardsContainer = document.querySelector(
     "div.cards-container.container-top5_now_playing"
   );
-
   for (let i = 6; i < 11; i++) {
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("class", "card");
@@ -202,9 +192,7 @@ function displayNowPlaying(movies) {
 }
 getDataNowPlaying();
 
-
 // ---------------------------------------------------------------------------------------------------------------------------------------------
-// Home
 // //  Top 5 Tv (cards-container)
 
 const api_URL_TopTV5 =
