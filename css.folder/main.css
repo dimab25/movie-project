@@ -39,3 +39,20 @@ height: 150px;
 .footer img {
   width: 20rem;
 }
+.btn {
+  box-shadow: 3px 3px #002f75;
+}
+#movieGenreDropdown {
+  box-shadow: 3px 3px #002f75;
+}
+#sort{
+  box-shadow: 3px 3px #002f75;
+}
+#myInput{
+  box-shadow: 3px 3px rgb(90, 81, 81);
+  border-radius: 10px;
+}
+
+#movieGenreDropdown option {
+  background: black !important;
+}
